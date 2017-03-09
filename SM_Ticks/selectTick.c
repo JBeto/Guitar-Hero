@@ -11,7 +11,7 @@
 
 // ------------------ Global Variables ------------------
 //unsigned char songChoice = 1;
-//bool endGame = false;
+//bool endScore = false;
 //sound* notePos = 0; //note position
 //sound* endSong = 0; //index that song ends
 // ------------------------------------------------------
@@ -46,7 +46,7 @@ int selectTick(int selectState) {
 			}
 			break;
 		case EndSelect:
-			if (endGame) { //game has ended, reset selection
+			if (endScore) { //game has ended, reset selection
 				selectState = Select;
 			}
 			break;

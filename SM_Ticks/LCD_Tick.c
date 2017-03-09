@@ -12,7 +12,7 @@ LCD_Cursor(unsigned char column) */
 // ------------------ Global Variables ------------------
 unsigned char songChoice = 1;
 sound* notePos = 0;
-bool endGame = false;
+bool endScore = false;
 // ------------------------------------------------------
 
 // ------------------ LCD Message SM --------------------
@@ -25,7 +25,7 @@ int LCD_Tick(int LCD_State) {
 	switch(LCD_State) {
 		case InitLCD:
 			LCD_State = PrintLCD;
-			LCD_init();
+			//LCD_init();
 			break;
 		case PrintLCD:
 			if (notePos) { //if song has been selected, go to EndLCD
@@ -34,7 +34,7 @@ int LCD_Tick(int LCD_State) {
 			}
 			break;
 		case EndLCD:
-			if (endGame) {
+			if (endScore) {
 				LCD_State = InitLCD;
 			}
 			break;
@@ -50,15 +50,19 @@ int LCD_Tick(int LCD_State) {
 			if (prevSong != songChoice) {
 				switch(songChoice) {
 					case 1:
+						LCD_ClearScreen();
 						LCD_DisplayString(1, "Song 1") //TODO: Replace song with actual name
 						break;
 					case 2:
+						LCD_ClearScreen();
 						LCD_DisplayString(1, "Song 2") //TODO: Replace song with actual name
 						break;
 					case 3:
+						LCD_ClearScreen();
 						LCD_DisplayString(1, "Song 3") //TODO: Replace song with actual name
 						break;
 					default:
+						LCD_ClearScreen();
 						LCD_DisplayString(1, "Song 1") //TODO: Replace song with actual name
 						break;
 				}

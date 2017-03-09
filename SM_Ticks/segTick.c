@@ -7,7 +7,7 @@
 //signed short score; //output
 // ------------------------------------------------------
 
-// ------------------- Score State SM -------------------
+// ------------------- TODO:Score State SM -------------------
 enum segStates {InitSeg, Mult, EndSeg};
 
 int segTick(int segState) {

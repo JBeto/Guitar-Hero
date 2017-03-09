@@ -8,7 +8,7 @@ sound* notePos = 0; //note position
 // ------------------------------------------------------
 
 
-// ------------------- Matrix Show SM -------------------
+// ------------------- TODO:Matrix Show SM -------------------
 enum matrixStates {InitMatrix, };
 
 int matrixTick(int matrixState) {
