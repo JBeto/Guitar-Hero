@@ -15,7 +15,7 @@ sound* notePos = 0;
 bool endGame = false;
 // ------------------------------------------------------
 
-// ---------------- Song Selection SM -------------------
+// ------------------ LCD Message SM --------------------
 //period = 250 ms
 enum LCD_States {InitLCD, PrintLCD, EndLCD};
 
