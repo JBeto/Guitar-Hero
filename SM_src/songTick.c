@@ -1,5 +1,4 @@
-#include "PWM.h"
-
+//#include "PWM.h"
 //period = 2 ms
 
 // -------------------- Song Type ----------------------
@@ -26,7 +25,7 @@ int songTick(int seqState) {
 	
 	switch(seqState) {
 		case InitSong:
-			if (notePos) {
+			if (notePos) { //add another condition if synching block note fall
 				seqState = PlayNote;
 			}
 			break;

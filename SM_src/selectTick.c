@@ -1,9 +1,9 @@
-#include "keypad.h"
-
+//#include "keypad.h"
 //period = 250 ms
 
 // ------------------ Global Variables ------------------
-unsigned char songChoice = 0;
+unsigned char songChoice = 1;
+bool endGame = false;
 sound* notePos = 0; //note position
 sound* endSong = 0; //index that song ends
 // ------------------------------------------------------
@@ -21,13 +21,13 @@ int selectTick(int selectState) {
 			}
 			else if (press == '1' || press == '2') { //increment song no.
 				selectState = WaitSelect;
-				if (songChoice < 2) {
+				if (songChoice < 3) {
 					++songChoice;
 				}
 			}
 			else if (press == 'A' || press == '3') { //decrement song no.
 				selectState = WaitSelect;
-				if (songChoice > 0) {
+				if (songChoice > 1) {
 					--songChoice;
 				}
 			}
@@ -38,7 +38,7 @@ int selectTick(int selectState) {
 			}
 			break;
 		case EndSelect:
-			if (!notePos) { //song advancer has run out of notes, reset selection
+			if (endGame) { //game has ended, reset selection
 				selectState = Select;
 			}
 			break;
@@ -55,16 +55,16 @@ int selectTick(int selectState) {
 		case EndSelect:
 			switch(notePos) {
 				case 0:
-					notePos = song0; //TODO: change name of song
+					notePos = song1; //TODO: change name of song
 					endSong = &(song0 + endSong0);
 					break;
 				case 1:
-					notePos = song1; //TODO: change name of song
-					endSong = &(song1 + endSong1);
+					notePos = song2; //TODO: change name of song
+					endSong = &(song2 + endSong2);
 					break;
 				case 2:
-					notePos = song2; //TODO: change name of song
-					endSong = &(song2 + endSong1);
+					notePos = song3; //TODO: change name of song
+					endSong = &(song3 + endSong3);
 					break;
 				default:
 					notePos = 0;
