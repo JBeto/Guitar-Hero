@@ -2,23 +2,23 @@
 //period = 2 ms
 
 // -------------------- Song Type ----------------------
-typedef struct sound {
-	double note; //frequency of note to be played
-	unsigned short duration; //duration for which note is held
-	unsigned short wait; //after duration ends, wait no. of ms before next note
-} sound;
+//typedef struct sound {
+//	double note; //frequency of note to be played
+//	unsigned short duration; //duration for which note is held
+//	unsigned short wait; //after duration ends, wait no. of ms before next note
+//} sound;
 // ------------------------------------------------------
 
 
 // ------------------ Global Variables ------------------
-double PWM_freq = 0; //to determine which column in LED Matrix note is on
-sound* notePos = 0; //note position
-sound* endSong = 0; //index that song ends
+//double PWM_freq = 0; //to determine which column in LED Matrix note is on
+//sound* notePos = 0; //note position
+//sound* endSong = 0; //index that song ends
 // ------------------------------------------------------
 
 
 // ------------------ Song Player SM --------------------
-enum songStates{InitSong, PlayNote, HoldNote, WaitNote, ResetSong} seqState;
+enum songStates {InitSong, PlayNote, HoldNote, WaitNote, ResetSong};
 
 int songTick(int seqState) {
 	static unsigned short durNote, gapNote;
